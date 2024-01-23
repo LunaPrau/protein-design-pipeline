@@ -1,0 +1,8 @@
+dockingTargetsInfo:
+  ligandDir: /home/mchrnwsk/january-pipeline/pipeline/input/ligands
+  ligandOrdersCsv: /home/mchrnwsk/january-pipeline/pipeline/input/docking_commands.csv
+  outDir: /home/mchrnwsk/january-pipeline/pipeline/output/experiment_2024-01-23_14:49:14/docking
+  protDir: /home/mchrnwsk/january-pipeline/pipeline/input/receptors
+toolInfo:
+  mglToolsDir: /home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs
+  util24Dir: /home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs/AutoDockTools/Utilities24
