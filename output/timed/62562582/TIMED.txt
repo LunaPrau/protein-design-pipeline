@@ -1,0 +1,13 @@
+ignore_uncommon False
+include_pdbs
+##########
+docked_pose_1 438
+docked_pose_10 438
+docked_pose_2 438
+docked_pose_3 438
+docked_pose_4 438
+docked_pose_5 438
+docked_pose_6 438
+docked_pose_7 438
+docked_pose_8 438
+docked_pose_9 438
