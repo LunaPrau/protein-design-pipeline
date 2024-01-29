@@ -45,7 +45,7 @@ timed_output_path = output_path / ("timed")
 mglTools_path = "/home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs"
 util24_path = "/home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs/AutoDockTools/Utilities24"
 timed_model_path = origin_path / "timed-design" / "TIMED.h5"
-aposteriori_data_prep_path = "/home/mchrnwsk/aposteriori/aposteriori/src/aposteriori/data_prep/cli.py"
+aposteriori_data_prep_path = "/home/mchrnwsk/protein-design-pipeline/max-with-git/protein-design-pipeline/aposteriori/src/aposteriori/data_prep/cli.py"
 
 ### aposteriori
 # parameters for creating a dataset

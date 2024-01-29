@@ -1,7 +1,3 @@
-[submodule "aposteriori"]
-	path = aposteriori
-	url = https://github.com/LunaPrau/aposteriori.git
-	branch = org_cbfix
 [submodule "timed-design"]
 	path = timed-design
 	url = https://github.com/LunaPrau/timed-design.git
@@ -10,3 +6,7 @@
 	path = voidDock
 	url = https://github.com/LunaPrau/voidDock.git
 	branch = yaml
+[submodule "aposteriori"]
+	path = aposteriori
+	url = https://github.com/LunaPrau/aposteriori
+	branch = org_cbfix
