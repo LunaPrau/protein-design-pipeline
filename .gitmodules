@@ -10,3 +10,6 @@
 	path = aposteriori
 	url = https://github.com/LunaPrau/aposteriori
 	branch = org_cbfix
+[submodule "timed_design"]
+	path = timed_design
+	url = https://github.com/LunaPrau/timed-design.git

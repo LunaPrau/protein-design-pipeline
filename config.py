@@ -8,9 +8,11 @@
 # structure-based cull
 # top candidates for experiments
 
+import sys
+import os
 import pathlib
 from datetime import datetime
-from pathlib import Path
+import pathlib
 
 # TODO before strating:
 # place ligands and receptors in .pdb format in "input" folder (see FOLDER STRUCTURE below)
@@ -44,8 +46,17 @@ timed_output_path = output_path / ("timed")
 # tools:
 mglTools_path = "/home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs"
 util24_path = "/home/mchrnwsk/bin/mgltools_x86_64Linux2_1.5.7/MGLToolsPckgs/AutoDockTools/Utilities24"
-timed_model_path = origin_path / "timed-design" / "TIMED.h5"
-aposteriori_data_prep_path = "/home/mchrnwsk/protein-design-pipeline/max-with-git/protein-design-pipeline/aposteriori/src/aposteriori/data_prep/test_cli.py"
+### to set imports of packages like voidDock and aposteriori
+### add the modules' parent directories to the Python path
+voidDock_directory = os.path.join(origin_path, "voidDock")
+sys.path.append(voidDock_directory)
+aposteriori_directory = os.path.join(origin_path, "aposteriori")
+sys.path.append(aposteriori_directory)
+timed_design_directory = os.path.join(origin_path, "timed_design")
+sys.path.append(timed_design_directory)
+
+### voidDock
+voidDock_yaml_config_name = 'voidDock_config.yml'
 
 ### aposteriori
 # parameters for creating a dataset
@@ -54,6 +65,7 @@ aposteriori_data_prep_path = "/home/mchrnwsk/protein-design-pipeline/max-with-gi
 frame_edge_length = 21
 voxels_per_side = 21
 aposteriori_dataset_name = "data"
+extension = ".pdb"
 processes = 8
 is_pdb_gzipped = False
 recursive = True
@@ -61,10 +73,22 @@ verbose = 1
 encode_cb = True
 atom_encoder = "CNOCACB"
 voxels_as_gaussian = True
-keep_side_chain_portion = 0.2
+keep_side_chain_portion = 0
 compression_gzip = False
 voxelise_all_states = True
 cfile=""
+pieces_filter_file = ""
+download_file = ""
+blacklist_csv = ""
 
 ### timed
 # parameters for prediction
+timed_model_path = origin_path / "timed_design" / "TIMED.h5" # do I need this?
+aposteriori_data_prep_path = "/home/mchrnwsk/protein-design-pipeline/max-with-git/protein-design-pipeline/aposteriori/src/aposteriori/data_prep/test_cli.py" # do I need this?
+batch_size = 20
+start_batch: int = 0
+dataset_map_path = "datasetmap.txt"
+blacklist = None
+predict_rotamers = False
+model_name_suffix = ""
+is_consensus = False
