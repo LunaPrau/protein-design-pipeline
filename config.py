@@ -83,8 +83,7 @@ blacklist_csv = ""
 
 ### timed
 # parameters for prediction
-timed_model_path = origin_path / "timed_design" / "TIMED.h5" # do I need this?
-aposteriori_data_prep_path = "/home/mchrnwsk/protein-design-pipeline/max-with-git/protein-design-pipeline/aposteriori/src/aposteriori/data_prep/test_cli.py" # do I need this?
+timed_model_path = input_path / "TIMED_models" / "default.h5" # alternative: Mert_cnn_timed_cnn_0.5-99-1.82.h5
 batch_size = 20
 start_batch: int = 0
 dataset_map_path = "datasetmap.txt"
