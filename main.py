@@ -27,6 +27,8 @@ from aposteriori.data_prep.create_frame_data_set import (
 )
 from timed_design.predict import load_dataset_and_predict
 
+####################################################################################################################################################################################################################################################################################
+
 def dock_structures():
     # arguments in voidDock format
     voidDock_config = dict(
@@ -112,6 +114,8 @@ def set_codec():
         ], f"Expected encoder to be CNO, CNOCB, CNOCACB, BackSideOrg or BackCBSideOrg but got {atom_encoder}"
         
     return codec
+
+####################################################################################################################################################################################################################################################################################
 
 def main():
     # temporary way to deal with input of many receptor+ligand pairs at once:
