@@ -122,7 +122,7 @@ def main():
     receptors = ["134189607", "62562582"] # ,"62562582","291312672","432409763","434874344",
 
     # VOIDDOCK
-    voidDock_yaml_config = dock_structures
+    voidDock_yaml_config = dock_structures()
     voidDock.main(voidDock_yaml_config)
 
     # APOSTERIORI and TIMED
@@ -144,7 +144,7 @@ def main():
             atom_filter_fn=keep_sidechains,
             pieces_filter_file=pieces_filter_file,
             processes=processes,
-            is_pdb_gzipped=True,
+            is_pdb_gzipped=is_pdb_gzipped,
             verbosity=verbose,
             encode_cb=encode_cb,
             voxels_as_gaussian=voxels_as_gaussian,
@@ -166,3 +166,6 @@ def main():
             model_name_suffix = model_name_suffix,
             is_consensus = is_consensus
         )
+
+if __name__ == "__main__":
+    main()
