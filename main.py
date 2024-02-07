@@ -29,8 +29,7 @@ from timed_design.predict import load_dataset_and_predict
 
 ####################################################################################################################################################################################################################################################################################
 
-def dock_structures():
-    # arguments in voidDock format
+def set_variables_voidDock():
     voidDock_config = dict(
         dockingTargetsInfo = dict(
             protDir = str(receptors_path),
@@ -50,16 +49,18 @@ def dock_structures():
 
     return voidDock_yaml_config
 
-def set_variables(receptor):
-    # aposteriori
+def set_variables_aposteriori(receptor):
     aposteriori_input = docking_output_path / receptor / "final_docked_pdbs"
-    aposteriori_dataset_name = receptor # what happens when one receptor is docked with different ligands? How to name it, how would it be saved?
-    # timed
+    aposteriori_dataset_name = receptor
+
+    return aposteriori_input, aposteriori_dataset_name
+
+def set_variables_timed(receptor):
     timed_receptor_output_path = timed_output_path / receptor
     timed_receptor_output_path.mkdir(parents=True, exist_ok=True)
     timed_dataset_path = timed_receptor_output_path / (aposteriori_dataset_name + ".hdf5")
 
-    return aposteriori_input, aposteriori_dataset_name, timed_receptor_output_path, timed_dataset_path
+    return timed_receptor_output_path, timed_dataset_path
 
 def find_structure_files(aposteriori_input, timed_receptor_output_path):
     if download_file and pathlib.Path(download_file).exists():
@@ -122,12 +123,13 @@ def main():
     receptors = ["134189607", "62562582"] # ,"62562582","291312672","432409763","434874344",
 
     # VOIDDOCK
-    voidDock_yaml_config = dock_structures()
+    voidDock_yaml_config = set_variables_voidDock()
     voidDock.main(voidDock_yaml_config)
 
     # APOSTERIORI and TIMED
     for receptor in receptors:
-        aposteriori_input, aposteriori_dataset_name, timed_receptor_output_path, timed_dataset_path = set_variables(receptor)
+        aposteriori_input, aposteriori_dataset_name = set_variables_aposteriori(receptor)
+        timed_receptor_output_path, timed_dataset_path  = set_variables_timed(receptor)
         structure_files = find_structure_files(aposteriori_input, timed_receptor_output_path)
         codec = set_codec()
 
